@@ -1,0 +1,46 @@
+
+
+# Создаем датчик
+POST http://localhost:8000/api/projects/
+Content-Type: application/json
+
+{
+    "name": "ESP32",
+    "description": "Датчик на кухне"
+}
+
+
+###
+
+# Получаем список всех датчиков 
+GET http://localhost:8000/api/projects/
+
+###
+
+# обновление датчика
+PATCH http://localhost:8000/api/projects/3/
+Content-Type: application/json
+
+{
+  "description": "Перенес датчик на балкон"
+
+}
+
+
+###
+
+# добавление измерения
+POST http://localhost:8000/api/measurements/
+Content-Type: application/json
+
+{
+  "value": 22.3,
+  "project": 3 
+}
+
+###
+
+
+# получение информации по датчику
+GET http://localhost:8000/api/projects/3/
+Content-Type: application/json
